@@ -2,14 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from ipywidgets import interactive
 
-# Define function for decision efficiency
 def decision_efficiency(probability, forest_raining, home_raining, forest_sunny, home_sunny):
     # Compute decision efficiencies
     forest_efficiency = probability * forest_raining + (1 - probability) * forest_sunny
     home_efficiency = probability * home_raining + (1 - probability) * home_sunny
     return forest_efficiency, home_efficiency
 
-# Define function for plotting
 def plot_efficiency(forest_raining, home_raining, forest_sunny, home_sunny):
     probabilities = np.linspace(0, 1, 100)
     forest_efficiencies = []
@@ -30,7 +28,6 @@ def plot_efficiency(forest_raining, home_raining, forest_sunny, home_sunny):
     plt.grid(True)
     plt.show()
 
-# Get user inputs
 probability = float(input('Enter the percentage chance of rain (from 0 to 100): '))
 
 if (probability < 0) or (probability > 100):
@@ -44,7 +41,6 @@ else:
     forest_sunny = int(input('- it is sunny and you are in the forest: '))
     home_sunny = int(input('- it is sunny and you are at home: '))
 
-    # Calculate efficiencies
     forest_efficiency, home_efficiency = decision_efficiency(probability, forest_raining, home_raining, forest_sunny, home_sunny)
 
     # Print results
